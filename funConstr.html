@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Constructors</title>
+
+    <style>
+        img {
+            height: 500px;
+            width: 800px;
+            border: 2px solid black;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h2>function Constructors :</h2>
+    <h2>To construct multiple objects with same set of properties and methods, JavaScript does not have concept of a
+        class.</h2>
+    <h2>To achieve the same, function constructor is used.</h2>
+    <h2>Function constructor is like regular functions but it is invoked using 'new' keyword.</h2>
+
+    <p>The Function() constructor creates a <strong>new Function object</strong>.Calling the constructor directly can
+        create functions
+        dynamically, but suffers from security and similar (but far less significant)</p>
+
+
+    <div class="imageContainer">
+        <img src="https://www.bookofnetwork.com/images/javascript-images/JS_Slide-156_03Mar17_1117.png" alt="....">
+    </div>
+    <div class="imageContainer">
+        <img src="https://www.bookofnetwork.com/images/javascript-images/bracketOperator.png" alt="....">
+    </div>
+
+
+
+
+
+</body>
+<script>
+
+
+    //USE 1
+    const AreaRectangle = new Function("length", "width", "return length * width");
+
+    console.log(AreaRectangle(4, 5))
+
+    // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+    const AreaCir = new Function("radius", "return 3.14 * radius * radius");
+
+    console.log(AreaCir(4))
+
+    // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+    //USE 2
+
+    function Car(name, model, color, numberofGears, currentGear, currentSpeed) {
+
+        this.name = name;          //key Value Pairs
+        this.model = model;        //key Value Pairs
+        this.color = color;        //key Value Pairs
+        this.numberofGear = numberofGears;
+        this.currentGear = currentGear;
+        this.currentSpeed = currentSpeed;
+
+        this.accelerate = function (speedCounter) {                ///Function Name & Function Body    //Behav 1
+            this.currentSpeed = this.currentSpeed + speedCounter;
+            return this.currentSpeed;
+        }
+
+        this.break = function (speedCounter) {                     ///Function Name & Function Body    //Behav 2
+            this.currentSpeed = this.currentSpeed - speedCounter;
+            return this.currentSpeed;
+        }
+
+    }
+
+
+
+    var myCarSpecs = new Car("Swift", "VDI", "white", 5, 3, 60);        //Creating an object with some properties
+
+    console.log(myCarSpecs.color);                                  //accessing the Values/PRoperties of the object
+    console.log(myCarSpecs.currentGear);
+    console.log(myCarSpecs.currentSpeed);
+    console.log(myCarSpecs.name);
+    console.log(myCarSpecs.accelerate(50));
+
+
+    var myCarSpecs2 = new Car("Swifteeee", "VDIeeeee", "whiterrrr", 7, 6, 400);          //Creating another object with some change in  properties
+    console.log(myCarSpecs2.name);
+    console.log(myCarSpecs2.color);                                  //accessing the Values/PRoperties of the object
+    console.log(myCarSpecs2.currentGear);
+
+
+</script>
+
+</html>

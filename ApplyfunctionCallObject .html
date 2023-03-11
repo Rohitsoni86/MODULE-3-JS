@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Creation</title>
+</head>
+
+<body>
+
+    <h2>Using Function Apply create employee object with field Name, Address and Designation and pass it to function.
+    </h2>
+    <h2>Function Apply() Method</h2>
+    <h3>
+        <ul>
+            <li>It is predefined Method in Js</li>
+            <li>With Apply() Method we can use an Object's Method/Functions into another Object/For Another Object</li>
+        </ul>
+    </h3>
+    <ul>
+        <li id="li_1"></li>
+        <li id="li_2"></li>
+        <li id="li_3"></li>
+        <li id="li_4"></li>
+    </ul>
+    <h2>By USing Apply() Method</h2>
+    <h2>Case 2:</h2>
+    <ul>
+        <li id="li_11"></li>
+    </ul>
+
+    <button onclick="printDetails()">Print Details</button>
+    <button onclick="printDetails2()">Print Details2</button>
+
+
+    <h2>By USing Apply() Method</h2>
+    <h2>Case 3:</h2>
+    <ul>
+        <li id="li_22"></li>
+    </ul>
+
+    <h4>ONLY DIFF between call() & apply() method is <strong>That The call() method takes arguments
+            separately.</strong><strong>The apply() method takes arguments as an array.</strong></h4>
+
+
+    <button onclick="printDetails3()">Print Details</button>
+
+
+</body>
+
+<script>
+
+
+
+    //// USE 1 Simple Click and Display:
+    const employee = {
+        Name: "Rohit Soni",
+        EmpID: 4034,
+        Address: "Jhalawar,Rajasthan",
+        Designation: "Full Stack Developer",
+    }
+
+
+    function printDetails() {
+        document.getElementById("li_1").innerHTML = employee.Name
+        document.getElementById("li_2").innerHTML = employee.EmpID
+        document.getElementById("li_3").innerHTML = employee.Address
+        document.getElementById("li_4").innerHTML = employee.Designation
+    }
+
+
+    //// USE 2:
+
+
+
+
+
+    const EmployeeObjectTemplate = {
+        Name: "",
+        Address: "",
+        Designation: "",
+        feature: function () {
+            console.log(" This is " + this.Name + " Address " + "" + this.Address + "" + " Designation " + "" + this.Designation)
+            return " This is " + this.Name + " Address " + "" + this.Address + "" + " Designation " + "" + this.Designation
+        }
+    }
+
+
+    const Employee = {
+        Name: "Rohit Soni",
+        Address: "Jhalawar,Rajasthan",
+        Designation: "Full Stack Developer",
+    }
+
+    function printDetails2() {
+        document.getElementById("li_11").innerHTML = EmployeeObjectTemplate.feature.apply(Employee)
+    }
+
+
+
+    //// USE 3:
+
+
+    const EmployeeObjectTemplate2 = {
+
+        Printdetails: function () {
+            return "This is " + this.Name + " Address " + "" + this.Address + "" + " Designation " + "" + this.Designation
+        }
+    }
+
+    const Employee3 = {
+        Name: "Rohit Soni",
+        Address: "Jhalawar,Rajasthan",
+        Designation: "Full Stack Developer",
+    }
+
+    function printDetails3() {
+        document.getElementById("li_22").innerHTML = EmployeeObjectTemplate2.Printdetails.apply(Employee3)
+    }
+
+
+</script>
+
+</html>

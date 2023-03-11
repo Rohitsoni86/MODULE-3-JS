@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Constructors</title>
+
+    <style>
+        img {
+            height: 500px;
+            width: 800px;
+            border: 2px solid black;
+
+        }
+
+        div {
+            padding: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Hoisting IN JavaScript :</h2>
+    <h3>Points to Remember :</h3>
+    <h3>JavaScript compiler moves variables and function declaration to the top and this is called hoisting.</h3>
+    <h3>Only variable declarations move to the top, not the initialization.</h3>
+    <h2>Functions definition moves first before variables.</h2>
+
+    <div>
+        <h1>Hoisting in Javascript makes it sure that the functions and variable are available to use before the
+            execution phase
+            starts. So that’s the reason :</h1>
+
+        <ul>
+            <li>Every functions and variable are hoisted in Javascript.</li>
+            <li>The function will be defined before the execution phase starts.</li>
+            <li>Variables are set up to undefined</li>
+            <li>Variables will be defined in the execution phase</li>
+        </ul>
+
+    </div>
+    <a href="https://www.digitalocean.com/community/tutorials/understanding-hoisting-in-javascript">Click for More
+        Reference</a>
+</body>
+<script>
+
+
+    // Case 1 : 
+
+    //You can Access the Variable X but the value is not defined
+    //You cannot Access the Variable Y & PI because they are not being HOISTED
+    console.log("CASE 1 : with Variables")
+
+    console.log(`Value of X is ${X}`)
+    // console.log(`Value of Y is ${Y}`)  
+    // console.log(`Value of PI is ${PI}`)
+
+
+    var X = 3;
+    let Y = 4;
+    const PI = 3.14;
+
+    console.log(`Value of X is ${X}`);
+
+    console.log("")
+    console.log("")
+    console.log("CASE 2 : with Functions");
+
+
+    myName();     //this function is accessible as it is hoisted    
+
+    function myName() {
+        console.log("Rohit Soni")
+    }
+
+    myName();
+
+    console.log("")
+    console.log("")
+    console.log("CASE 3 : with Arrow Functions")
+
+
+    //  myArrowFun();            //  Cannot access 'myArrowFun' before initialization  //AS it is behaves like a variable
+
+    const myArrowFun = () => {
+        console.log("This is from Arrow Function")
+    }
+
+    myArrowFun();
+
+
+    //  myArrowFun2();              //  Cannot access 'myArrowFun' before initialization  //AS it is behaves like a variable
+
+    var myArrowFun2 = () => {
+        console.log("This is from Arrow Function 2")
+    }
+
+
+
+</script>
+
+</html>

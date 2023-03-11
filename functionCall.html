@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Call</title>
+</head>
+
+<body>
+    <h2>Function Call() Method</h2>
+    <h3>
+        <ul>
+            <li>It is predefined Method in Js</li>
+            <li>With call() Method we can use an Object's Method/Functions into another Object/For Another Object</li>
+        </ul>
+    </h3>
+
+</body>
+
+<script>
+
+    const user = {
+        name: "Rohit Soni",
+        enroll: 5579,
+        branch: "CSE",
+        feature: function () {
+            console.log(" This is " + this.name + " Branch " + "" + this.branch + "" + " Enrollment " + "" + this.enroll)
+        }
+    }
+
+
+    user.feature();
+
+    console.log("We are Calling the object function as it is declared inside it")
+
+    //Creating Another Object Now and we want to use the above function within/ For that object also then 
+    //We will not Recreate the Function
+    //We will Reuse the function with Call() Method
+
+    const user2 = {
+        name: "Moh Soni",
+        enroll: 55792,
+        branch: "CSE",
+    }
+
+
+    user.feature.call(user2)   //this will call the function of user1 and with call METHOD we will PASS Argument as 
+
+    //1 the OBject who want to use the Function
+    //2 The further arguments are the parameters of that function if they are initially declared 
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promises</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+    /*   function getCheese() {
+           setTimeout(() => {
+               const cheese = "CCCCCCCCCCCCCCC"
+               console.log("here is your Cheese", cheese)
+           }, 3000)
+       }
+   
+       getCheese() */
+
+    function getCheese() {
+        return new Promise((resolve, reject) => {
+
+            setTimeout(() => {
+                const cheese = "CCCCCCCCCCCCCCC"
+                console.log("here is your Cheese", cheese)
+                resolve(cheese)
+            }, 3000)
+
+        })
+
+    }
+
+    // console.log(getCheese())
+
+
+    function makeDough(cheese) {
+        return new Promise((resolve, reject) => {
+
+            setTimeout(() => {
+                const dough = cheese + "DDDDDDDDDDDDDDD"
+                console.log("here is your dough", dough)
+                resolve(dough)
+            }, 3000)
+
+        })
+
+    }
+
+
+    function bakePIZZA(dough) {
+        return new Promise((resolve, reject) => {
+
+            setTimeout(() => {
+                const Pizza = dough + "PPPPPPPPPPPPPPPPPP"
+                console.log("here is your dough", Pizza)
+                resolve(Pizza)
+            }, 3000)
+
+        })
+
+    }
+
+
+
+
+    getCheese().then(
+
+        (cheese) => {
+            alert(cheese)
+            return makeDough(cheese)
+        })
+        .then((dough) => {
+            alert(dough)
+            return bakePIZZA(dough)
+        })
+        .then((Pizza) => {
+            alert(Pizza)
+        })
+
+</script>
+
+</html>
